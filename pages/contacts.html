@@ -4,38 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты</title>
+    <link rel="stylesheet" href="../style/styles.css">
 </head>
 <body>
-    <div id="header">
-        <h1>Контакты</h1>
-    </div>
-    
-    <div id="menu">
-        <ul>
-            <li><a href="../index.html">Главная</a></li>
-            <li><a href="news.html">Новости</a></li>
-            <li><a href="practices.html">Практики</a></li>
-            <li><a href="goods.html">Товары</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-    </div>
-    
-    <div id="content">
-        <h2>Свяжитесь с нами</h2>
+    <div class="page-container">
+        <div class="header">Контакты</div>
         
-        <div style="margin: 20px 0;">
-            <p><strong>Электронная почта:</strong> savars328@gmail.com</p>
-            <p><strong>Адрес:</strong> г. Москва, ул. Студенческая, д. 1</p>
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
         </div>
         
-        <button onclick="alert('Функция звонка будет реализована позже!')" 
-                style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">
-            Позвоните мне
-        </button>
-    </div>
-    
-    <div id="footer" style="margin-top: 30px; padding: 20px; background-color: #f0f0f0;">
-        <p>© 2025 Семестровая работа. Все права защищены.</p>
+        <div class="content">
+            <div class="contacts-section">
+                <h2 class="section-title">Свяжитесь с нами</h2>
+                
+                <div class="contact-info">
+                    <p class="contact-detail"><strong>Электронная почта:</strong> savars328@gmail.com</p>
+                    <p class="contact-detail"><strong>Адрес:</strong> г. Москва, ул. Студенческая, д. 1</p>
+                </div>
+                
+                <button class="contact-button" onclick="alert('Функция звонка будет реализована позже!')">
+                    Позвоните мне
+                </button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Семестровая работа. Все права защищены.</p>
+        </div>
     </div>
 </body>
 </html>
