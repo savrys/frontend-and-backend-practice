@@ -5,6 +5,8 @@ body {
     padding: 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ===== КОНТЕЙНЕР СТРАНИЦЫ ===== */
@@ -14,6 +16,16 @@ body {
     background: white;
     min-height: 100vh;
     box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.content {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    flex-grow: 1;
 }
 
 /* ===== ШАПКА ===== */
@@ -58,13 +70,6 @@ body {
 .nav-link:hover {
     background: rgba(255,255,255,0.1);
     transform: translateY(-2px);
-}
-
-/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
-.content {
-    padding: 40px;
-    max-width: 900px;
-    margin: 0 auto;
 }
 
 /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
@@ -215,11 +220,11 @@ body {
     line-height: 1.6;
     margin: 0;
 }
-
 /* ===== СТРАНИЦА ТОВАРОВ ===== */
 .goods-section {
     margin-top: 30px;
 }
+
 .goods-container {
     display: flex;
     flex-wrap: wrap;
@@ -330,8 +335,5 @@ body {
     color: white;
     text-align: center;
     padding: 30px;
-    margin-top: 50px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    margin-top: auto;
 }
