@@ -330,9 +330,8 @@ body {
     color: white;
     text-align: center;
     padding: 30px;
-    /*margin-top: 50px;  Уберите это, если не нужно дополнительное пространство до футера*/
-    position: fixed;
+    margin-top: 50px;
+    position: relative;
     bottom: 0;
-    left: 0; /* или right: 0; в зависимости от расположения */
     width: 100%;
 }
