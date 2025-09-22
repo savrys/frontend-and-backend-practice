@@ -4,46 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Новости</title>
+    <link rel="stylesheet" href="../style/styles.css">
 </head>
 <body>
-    <div id="header">
-        <h1>Новости проекта</h1>
-    </div>
-    
-    <div id="menu">
-        <ul>
-            <li><a href="../index.html">Главная</a></li>
-            <li><a href="news.html">Новости</a></li>
-            <li><a href="practices.html">Практики</a></li>
-            <li><a href="goods.html">Товары</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-    </div>
-    
-    <div id="content">
-        <h2>Последние новости</h2>
+    <div class="page-container">
+        <div class="header">Новости проекта</div>
         
-        <div style="border: 1px solid #ccc; padding: 20px; margin: 20px 0;">
-            <h3>Запуск нового проекта</h3>
-            <p><strong>Дата:</strong> 15.09.2025 | <strong>Автор:</strong> Арсений</p>
-            <p>Мы рады сообщить о запуске нового образовательного проекта! Теперь все материалы будут доступны в одном месте.</p>
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
         </div>
         
-        <div style="border: 1px solid #ccc; padding: 20px; margin: 20px 0;">
-            <h3>Обновление расписания</h3>
-            <p><strong>Дата:</strong> 10.09.2025 | <strong>Автор:</strong> Преподаватель</p>
-            <p>Опубликовано новое расписание практических занятий на осенний семестр 2025/2026 учебного года.</p>
+        <div class="content">
+            <div class="news-section">
+                <h2 class="section-title">Последние новости</h2>
+                
+                <div class="news-card">
+                    <h3 class="news-title">Запуск нового проекта</h3>
+                    <p class="news-meta"><strong>Дата:</strong> 15.09.2025 | <strong>Автор:</strong> Арсений</p>
+                    <p class="news-content">Мы рады сообщить о запуске нового образовательного проекта! Теперь все материалы будут доступны в одном месте.</p>
+                </div>
+                
+                <div class="news-card">
+                    <h3 class="news-title">Обновление расписания</h3>
+                    <p class="news-meta"><strong>Дата:</strong> 10.09.2025 | <strong>Автор:</strong> Преподаватель</p>
+                    <p class="news-content">Опубликовано новое расписание практических занятий на осенний семестр 2025/2026 учебного года.</p>
+                </div>
+                
+                <div class="news-card">
+                    <h3 class="news-title">Технические работы</h3>
+                    <p class="news-meta"><strong>Дата:</strong> 05.09.2025 | <strong>Автор:</strong> Технический отдел</p>
+                    <p class="news-content">В ближайшие выходные планируются технические работы на сервере. Возможны временные перерывы в работе.</p>
+                </div>
+            </div>
         </div>
         
-        <div style="border: 1px solid #ccc; padding: 20px; margin: 20px 0;">
-            <h3>Технические работы</h3>
-            <p><strong>Дата:</strong> 05.09.2025 | <strong>Автор:</strong> Технический отдел</p>
-            <p>В ближайшие выходные планируются технические работы на сервере. Возможны временные перерывы в работе.</p>
+        <div class="footer">
+            <p>© 2025 Семестровая работа. Все права защищены.</p>
         </div>
-    </div>
-    
-    <div id="footer" style="margin-top: 30px; padding: 20px; background-color: #f0f0f0;">
-        <p>© 2025 Семестровая работа. Все права защищены.</p>
     </div>
 </body>
 </html>
