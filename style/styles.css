@@ -331,4 +331,5 @@ body {
     text-align: center;
     padding: 30px;
     margin-top: auto;
+    flex-shrink: 0;
 }
