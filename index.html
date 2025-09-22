@@ -4,60 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Семестровая работа</title>
+    <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
-    <div id="header">
-        <h1>Портфолио студента</h1>
-    </div>
-    
-    <div id="menu">
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="pages/news.html">Новости</a></li>
-            <li><a href="pages/practices.html">Практики</a></li>
-            <li><a href="pages/goods.html">Товары</a></li>
-            <li><a href="pages/contacts.html">Контакты</a></li>
-        </ul>
-    </div>
-    
-    <div id="content">
-        <h2>Информация об авторе</h2>
-        <img src="images/photo.png" alt="Фото автора" width="200" height="250">
-        <h3>Савин Арсений Дмитриевич</h3>
-        <p><strong>Учебная группа:</strong> ЭФБО-15-24</p>
+    <div class="page-container">
+        <div class="header">Портфолио студента</div>
         
-        <div>
-            <h3>Обо мне:</h3>
-            <p>Я родился в Москве в 2006 на краю города. Глупость рано ударила в голову. В четыре активно ругался.
-            Потом школа, форма. Так я становился сильней.</p>
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
+            </ul>
         </div>
         
-        <div style="display: flex; gap: 10px; margin: 20px 0;">
-            <div style="border: 1px solid #ccc; padding: 10px;">HTML/CSS</div>
-            <div style="border: 1px solid #ccc; padding: 10px;">JavaScript</div>
-            <div style="border: 1px solid #ccc; padding: 10px;">Python</div>
-            <div style="border: 1px solid #ccc; padding: 10px;">Git</div>
+        <div class="content">
+            <div class="profile-header">
+                <h1 class="profile-title">Информация об авторе</h1>
+                <img class="profile-photo" src="images/photo.png" alt="Фото автора">
+                <h2 class="profile-name">Савин Арсений Дмитриевич</h2>
+                <p class="profile-group">ЭФБО-15-24</p>
+            </div>
+            
+            <div class="about-me">
+                <h3>Обо мне:</h3>
+                <p>Я родился в Москве в 2006 на краю города. Глупость рано ударила в голову. В четыре активно ругался.
+                Потом школа, форма. Так я становился сильней.</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-tag">HTML/CSS</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">Git</div>
+            </div>
+            
+            <div class="experience-section">
+                <h2 class="section-title">Мой опыт работы</h2>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 1</h3>
+                    <p class="experience-desc">Работал фантазёром. Сочинял и праздновал.</p>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 2</h3>
+                    <p class="experience-desc">Работал воровством. Воровал и продавал.</p>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 3</h3>
+                    <p class="experience-desc">Работал рэпером. Читал и пел.</p>
+                </div>
+            </div>
         </div>
         
-        <div>
-            <h3>Мой опыт работы:</h3>
-            <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
-                <strong>Опыт 1</strong><br>
-                Работал фантазёром. Сочинял и праздновал.
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
-                <strong>Опыт 2</strong><br>
-                Работал воровством. Воровал и продавал.
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
-                <strong>Опыт 3</strong><br>
-                Работал рэпером. Читал и пел.
-            </div>
+        <div class="footer">
+            <p>© 2025 Семестровая работа. Все права защищены.</p>
         </div>
-    </div>
-    
-    <div id="footer" style="margin-top: 30px; padding: 20px; background-color: #f0f0f0;">
-        <p>© 2025 Семестровая работа. Все права защищены.</p>
     </div>
 </body>
 </html>
