@@ -8,9 +8,11 @@
 </head>
 <body>
     <div class="page-container">
-        <div class="header">Новости проекта</div>
+        <!-- ИСПРАВЛЕНО: Добавлен семантический тег header -->
+        <header class="header">Новости проекта</header>
         
-        <div class="nav">
+        <!-- ИСПРАВЛЕНО: Добавлен семантический тег nav -->
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
@@ -18,35 +20,40 @@
                 <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
                 <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
             </ul>
-        </div>
+        </nav>
         
-        <div class="content">
+        <!-- ИСПРАВЛЕНО: Добавлен семантический тег main -->
+        <main class="content">
             <div class="news-section">
                 <h2 class="section-title">Последние новости</h2>
                 
-                <div class="news-card">
+                <!-- ИСПРАВЛЕНО: Заменили div на article для семантики -->
+                <article class="news-card">
                     <h3 class="news-title">Запуск нового проекта</h3>
                     <p class="news-meta"><strong>Дата:</strong> 15.09.2025 | <strong>Автор:</strong> Арсений</p>
                     <p class="news-content">Мы рады сообщить о запуске нового образовательного проекта! Теперь все материалы будут доступны в одном месте.</p>
-                </div>
+                </article>
                 
-                <div class="news-card">
+                <!-- ИСПРАВЛЕНО: Заменили div на article для семантики -->
+                <article class="news-card">
                     <h3 class="news-title">Обновление расписания</h3>
                     <p class="news-meta"><strong>Дата:</strong> 10.09.2025 | <strong>Автор:</strong> Преподаватель</p>
                     <p class="news-content">Опубликовано новое расписание практических занятий на осенний семестр 2025/2026 учебного года.</p>
-                </div>
+                </article>
                 
-                <div class="news-card">
+                <!-- ИСПРАВЛЕНО: Заменили div на article для семантики -->
+                <article class="news-card">
                     <h3 class="news-title">Технические работы</h3>
                     <p class="news-meta"><strong>Дата:</strong> 05.09.2025 | <strong>Автор:</strong> Технический отдел</p>
                     <p class="news-content">В ближайшие выходные планируются технические работы на сервере. Возможны временные перерывы в работе.</p>
-                </div>
+                </article>
             </div>
-        </div>
+        </main>
         
-        <div class="footer">
+        <!-- ИСПРАВЛЕНО: Добавлен семантический тег footer -->
+        <footer class="footer">
             <p>© 2025 Семестровая работа. Все права защищены.</p>
-        </div>
+        </footer>
     </div>
 </body>
 </html>
