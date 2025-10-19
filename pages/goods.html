@@ -45,7 +45,7 @@
                 <h2 class="goods__title">Наши товары</h2>
                 
                 <!-- Фильтры товаров -->
-                <div class="card mb-4">
+                <div class="card">
                     <div class="card-body">
                         <div class="row g-3 align-items-center">
                             <div class="col-md-4">
@@ -79,67 +79,104 @@
                 </div>
 
                 <!-- Сетка товаров -->
-                <div class="goods__grid" id="goodsGrid">
+                <div class="row g-4 mt-3" id="goodsGrid">
                     <!-- Товар 1 -->
-                    <div class="goods__card" data-category="laptop" data-price="85000" data-name="Ноутбук игровой">
-                        <img src="../images/goods1.jpg" alt="Ноутбук игровой" class="goods__image">
-                        <h3 class="goods__name">Ноутбук игровой</h3>
-                        <p class="goods__price">85 000 ₽</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary" onclick="addToCartFromButton(this)">
-                                <i class="bi bi-cart-plus"></i> В корзину
-                            </button>
-                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
-                                <i class="bi bi-heart"></i> В избранное
-                            </button>
+                    <div class="col-md-6 col-lg-3" data-category="laptop" data-price="85000" data-name="Ноутбук игровой">
+                        <div class="card product-card h-100">
+                            <img src="../images/goods1.jpg" class="card-img-top" alt="Ноутбук игровой" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Ноутбук игровой</h5>
+                                <p class="card-text flex-grow-1">Мощный игровой ноутбук для современных игр</p>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="h5 text-danger mb-0">85 000 ₽</span>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" onclick="addToCartFromButton(this)">
+                                            <i class="bi bi-cart-plus"></i> В корзину
+                                        </button>
+                                        <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
+                                            <i class="bi bi-heart"></i> В избранное
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- Товар 2 -->
-                    <div class="goods__card" data-category="phone" data-price="45000" data-name="Смартфон">
-                        <img src="../images/goods2.jpg" alt="Смартфон" class="goods__image">
-                        <h3 class="goods__name">Смартфон</h3>
-                        <p class="goods__price">45 000 ₽</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary" onclick="addToCartFromButton(this)">
-                                <i class="bi bi-cart-plus"></i> В корзину
-                            </button>
-                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
-                                <i class="bi bi-heart"></i> В избранное
-                            </button>
+                    <div class="col-md-6 col-lg-3" data-category="phone" data-price="45000" data-name="Смартфон">
+                        <div class="card product-card h-100">
+                            <img src="../images/goods2.jpg" class="card-img-top" alt="Смартфон" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Смартфон</h5>
+                                <p class="card-text flex-grow-1">Современный смартфон с отличной камерой</p>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="h5 text-danger mb-0">45 000 ₽</span>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" onclick="addToCartFromButton(this)">
+                                            <i class="bi bi-cart-plus"></i> В корзину
+                                        </button>
+                                        <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
+                                            <i class="bi bi-heart"></i> В избранное
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- Товар 3 -->
-                    <div class="goods__card goods__card--discount" data-category="audio" data-price="12000" data-name="Наушники" data-discount="true">
-                        <img src="../images/goods3.jpg" alt="Наушники" class="goods__image">
-                        <h3 class="goods__name">Наушники</h3>
-                        <p class="goods__price">
-                            <span class="goods__price--old">15 000 ₽</span>
-                            12 000 ₽
-                        </p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary" onclick="addToCartFromButton(this)">
-                                <i class="bi bi-cart-plus"></i> В корзину
-                            </button>
-                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
-                                <i class="bi bi-heart"></i> В избранное
-                            </button>
+                    <div class="col-md-6 col-lg-3" data-category="audio" data-price="12000" data-name="Наушники" data-discount="true">
+                        <div class="card product-card h-100 position-relative">
+                            <div class="discount-badge">СКИДКА</div>
+                            <img src="../images/goods3.jpg" class="card-img-top" alt="Наушники" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Наушники</h5>
+                                <p class="card-text flex-grow-1">Беспроводные наушники с шумоподавлением</p>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <span class="text-muted text-decoration-line-through me-2">15 000 ₽</span>
+                                            <span class="h5 text-danger mb-0">12 000 ₽</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" onclick="addToCartFromButton(this)">
+                                            <i class="bi bi-cart-plus"></i> В корзину
+                                        </button>
+                                        <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
+                                            <i class="bi bi-heart"></i> В избранное
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- Товар 4 -->
-                    <div class="goods__card" data-category="accessories" data-price="8500" data-name="Клавиатура">
-                        <img src="../images/goods4.jpg" alt="Клавиатура" class="goods__image">
-                        <h3 class="goods__name">Клавиатура</h3>
-                        <p class="goods__price">8 500 ₽</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary" onclick="addToCartFromButton(this)">
-                                <i class="bi bi-cart-plus"></i> В корзину
-                            </button>
-                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
-                                <i class="bi bi-heart"></i> В избранное
-                            </button>
+                    <div class="col-md-6 col-lg-3" data-category="accessories" data-price="8500" data-name="Клавиатура">
+                        <div class="card product-card h-100">
+                            <img src="../images/goods4.jpg" class="card-img-top" alt="Клавиатура" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Клавиатура</h5>
+                                <p class="card-text flex-grow-1">Механическая клавиатура с RGB подсветкой</p>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="h5 text-danger mb-0">8 500 ₽</span>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" onclick="addToCartFromButton(this)">
+                                            <i class="bi bi-cart-plus"></i> В корзину
+                                        </button>
+                                        <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
+                                            <i class="bi bi-heart"></i> В избранное
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -153,11 +190,11 @@
                     </div>
                     <div class="card-body">
                         <div id="cartItems">
-                            <p class="text-muted">Корзина пуста</p>
+                            <p class="text-muted mb-0">Корзина пуста</p>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <strong>Итого: <span id="cartTotal">0</span> ₽</strong>
-                            <button class="btn btn-success" onclick="checkout()">
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                            <strong class="h5 mb-0">Итого: <span id="cartTotal">0</span> ₽</strong>
+                            <button class="btn btn-success btn-lg" onclick="checkout()">
                                 <i class="bi bi-bag-check"></i> Оформить заказ
                             </button>
                         </div>
@@ -175,49 +212,41 @@
         let cart = [];
         let favorites = new Set();
 
-        // Исправленная функция добавления в корзину
         function addToCartFromButton(button) {
-            const card = button.closest('.goods__card');
-            const productName = card.querySelector('.goods__name').textContent;
+            const card = button.closest('.col-md-6');
+            const productName = card.querySelector('.card-title').textContent;
             
-            // Правильное извлечение цены (только актуальная цена)
-            let priceText = card.querySelector('.goods__price').textContent;
+            let priceElement = card.querySelector('.text-danger');
+            let priceText = priceElement.textContent;
             
-            // Если есть старая цена (скидка), берем только последнюю цену
-            if (card.classList.contains('goods__card--discount')) {
-                const prices = card.querySelector('.goods__price').innerHTML;
-                // Берем текст после последнего тега span (актуальная цена)
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = prices;
-                // Убираем старую цену и оставляем только актуальную
-                const span = tempDiv.querySelector('span');
-                if (span) {
-                    span.remove();
-                }
-                priceText = tempDiv.textContent || tempDiv.innerText || '';
+            // Если есть старая цена (скидка), берем только актуальную цену
+            if (card.querySelector('.text-decoration-line-through')) {
+                priceText = priceElement.textContent;
             }
             
-            // Очищаем цену от лишних символов
             const productPrice = parseInt(priceText.replace(/[^\d]/g, ''));
             
             addToCart(productName, productPrice);
             updateCartDisplay();
             
             // Визуальная обратная связь
+            const originalHTML = button.innerHTML;
             button.innerHTML = '<i class="bi bi-check-lg"></i> Добавлено';
             button.classList.remove('btn-primary');
             button.classList.add('btn-success');
+            button.disabled = true;
             
             setTimeout(() => {
-                button.innerHTML = '<i class="bi bi-cart-plus"></i> В корзину';
+                button.innerHTML = originalHTML;
                 button.classList.remove('btn-success');
                 button.classList.add('btn-primary');
+                button.disabled = false;
             }, 2000);
         }
 
         function toggleFavorite(button) {
-            const card = button.closest('.goods__card');
-            const productName = card.querySelector('.goods__name').textContent;
+            const card = button.closest('.col-md-6');
+            const productName = card.querySelector('.card-title').textContent;
             
             if (favorites.has(productName)) {
                 favorites.delete(productName);
@@ -248,21 +277,22 @@
             const cartTotal = document.getElementById('cartTotal');
             
             if (cart.length === 0) {
-                cartItems.innerHTML = '<p class="text-muted">Корзина пуста</p>';
+                cartItems.innerHTML = '<p class="text-muted mb-0">Корзина пуста</p>';
                 cartTotal.textContent = '0';
                 return;
             }
             
             let total = 0;
-            let itemsHTML = '<div class="list-group">';
+            let itemsHTML = '';
             
             cart.forEach((item, index) => {
                 total += item.price;
                 itemsHTML += `
-                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="cart-item d-flex justify-content-between align-items-center">
                         <div>
-                            ${item.name}
-                            <br><small class="text-muted">${item.price.toLocaleString()} ₽</small>
+                            <strong>${item.name}</strong>
+                            <br>
+                            <small class="text-muted">${item.price.toLocaleString()} ₽</small>
                         </div>
                         <button class="btn btn-sm btn-outline-danger" onclick="removeFromCartByName('${item.name.replace(/'/g, "\\'")}')">
                             <i class="bi bi-trash"></i>
@@ -271,7 +301,6 @@
                 `;
             });
             
-            itemsHTML += '</div>';
             cartItems.innerHTML = itemsHTML;
             cartTotal.textContent = total.toLocaleString();
         }
@@ -296,11 +325,11 @@
         function filterGoods() {
             const category = document.getElementById('categoryFilter').value;
             const discountOnly = document.getElementById('discountFilter').checked;
-            const cards = document.querySelectorAll('.goods__card');
+            const cards = document.querySelectorAll('.col-md-6');
             
             cards.forEach(card => {
                 const cardCategory = card.dataset.category;
-                const hasDiscount = card.classList.contains('goods__card--discount');
+                const hasDiscount = card.hasAttribute('data-discount');
                 let show = true;
                 
                 if (category !== 'all' && cardCategory !== category) {
@@ -318,7 +347,7 @@
         function sortGoods() {
             const sortBy = document.getElementById('sortFilter').value;
             const container = document.getElementById('goodsGrid');
-            const cards = Array.from(container.querySelectorAll('.goods__card'));
+            const cards = Array.from(container.querySelectorAll('.col-md-6'));
             
             cards.sort((a, b) => {
                 switch (sortBy) {
@@ -337,7 +366,6 @@
             cards.forEach(card => container.appendChild(card));
         }
 
-        // Функция переключения темы
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -352,7 +380,6 @@
             }
         }
 
-        // Загружаем сохраненную тему
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
