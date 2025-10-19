@@ -189,6 +189,11 @@
                 // Берем текст после последнего тега span (актуальная цена)
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = prices;
+                // Убираем старую цену и оставляем только актуальную
+                const span = tempDiv.querySelector('span');
+                if (span) {
+                    span.remove();
+                }
                 priceText = tempDiv.textContent || tempDiv.innerText || '';
             }
             
@@ -259,7 +264,7 @@
                             ${item.name}
                             <br><small class="text-muted">${item.price.toLocaleString()} ₽</small>
                         </div>
-                        <button class="btn btn-sm btn-outline-danger" onclick="removeFromCartByName('${item.name}')">
+                        <button class="btn btn-sm btn-outline-danger" onclick="removeFromCartByName('${item.name.replace(/'/g, "\\'")}')">
                             <i class="bi bi-trash"></i>
                         </button>
                     </div>
