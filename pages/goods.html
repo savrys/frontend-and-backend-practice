@@ -1,1 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары - Магазин</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Каталог товаров</h1>
+            <p class="header__subtitle">Лучшие товары по доступным ценам</p>
+            <div class="theme-switcher">
+                <button class="theme-switcher__button" onclick="toggleTheme()">
+                    <i class="bi bi-moon-fill"></i> Сменить тему
+                </button>
+            </div>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <main class="main">
+            <section class="goods">
+                <h2 class="goods__title">Наши товары</h2>
+                
+                <!-- Фильтры товаров -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-md-4">
+                                <label class="form-label">Категория:</label>
+                                <select class="form-select" onchange="filterGoods()" id="categoryFilter">
+                                    <option value="all">Все товары</option>
+                                    <option value="laptop">Ноутбуки</option>
+                                    <option value="phone">Смартфоны</option>
+                                    <option value="audio">Аудио</option>
+                                    <option value="accessories">Аксессуары</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Сортировка:</label>
+                                <select class="form-select" onchange="sortGoods()" id="sortFilter">
+                                    <option value="default">По умолчанию</option>
+                                    <option value="price-asc">Цена по возрастанию</option>
+                                    <option value="price-desc">Цена по убыванию</option>
+                                    <option value="name">По названию</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Показать скидки:</label>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="discountFilter" onchange="filterGoods()">
+                                    <label class="form-check-label" for="discountFilter">Только со скидкой</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Сетка товаров -->
+                <div class="goods__grid" id="goodsGrid">
+                    <!-- Товар 1 -->
+                    <div class="goods__card" data-category="laptop" data-price="85000" data-name="Ноутбук игровой">
+                        <img src="../images/goods1.jpg" alt="Ноутбук игровой" class="goods__image">
+                        <h3 class="goods__name">Ноутбук игровой</h3>
+                        <p class="goods__price">85 000 ₽</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
+                                <i class="bi bi-cart-plus"></i> В корзину
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
+                                <i class="bi bi-heart"></i> В избранное
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 2 -->
+                    <div class="goods__card" data-category="phone" data-price="45000" data-name="Смартфон">
+                        <img src="../images/goods2.jpg" alt="Смартфон" class="goods__image">
+                        <h3 class="goods__name">Смартфон</h3>
+                        <p class="goods__price">45 000 ₽</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
+                                <i class="bi bi-cart-plus"></i> В корзину
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
+                                <i class="bi bi-heart"></i> В избранное
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 3 -->
+                    <div class="goods__card goods__card--discount" data-category="audio" data-price="12000" data-name="Наушники" data-discount="true">
+                        <img src="../images/goods3.jpg" alt="Наушники" class="goods__image">
+                        <h3 class="goods__name">Наушники</h3>
+                        <p class="goods__price">
+                            <span class="goods__price--old">15 000 ₽</span>
+                            12 000 ₽
+                        </p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
+                                <i class="bi bi-cart-plus"></i> В корзину
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
+                                <i class="bi bi-heart"></i> В избранное
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Товар 4 -->
+                    <div class="goods__card" data-category="accessories" data-price="8500" data-name="Клавиатура">
+                        <img src="../images/goods4.jpg" alt="Клавиатура" class="goods__image">
+                        <h3 class="goods__name">Клавиатура</h3>
+                        <p class="goods__price">8 500 ₽</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
+                                <i class="bi bi-cart-plus"></i> В корзину
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
+                                <i class="bi bi-heart"></i> В избранное
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Товар 5 -->
+                    <div class="goods__card goods__card--discount" data-category="laptop" data-price="120000" data-name="Ноутбук премиум" data-discount="true">
+                        <img src="../images/goods1.jpg" alt="Ноутбук премиум" class="goods__image">
+                        <h3 class="goods__name">Ноутбук премиум</h3>
+                        <p class="goods__price">
+                            <span class="goods__price--old">150 000 ₽</span>
+                            120 000 ₽
+                        </p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
+                                <i class="bi bi-cart-plus"></i> В корзину
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
+                                <i class="bi bi-heart"></i> В избранное
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Товар 6 -->
+                    <div class="goods__card" data-category="phone" data-price="35000" data-name="Смартфон бюджетный">
+                        <img src="../images/goods2.jpg" alt="Смартфон бюджетный" class="goods__image">
+                        <h3 class="goods__name">Смартфон бюджетный</h3>
+                        <p class="goods__price">35 000 ₽</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
+                                <i class="bi bi-cart-plus"></i> В корзину
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
+                                <i class="bi bi-heart"></i> В избранное
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Корзина -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">
+                            <i class="bi bi-cart3"></i> Корзина
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="cartItems">
+                            <p class="text-muted">Корзина пуста</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <strong>Итого: <span id="cartTotal">0</span> ₽</strong>
+                            <button class="btn btn-success" onclick="checkout()">
+                                <i class="bi bi-bag-check"></i> Оформить заказ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>© 2025 Семестровая работа. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <script>
+        let cart = [];
+        let favorites = new Set();
+
+        // Функции для работы с товарами
+        function selectGoodsCard(card) {
+            card.classList.toggle('goods__card--selected');
+            const productName = card.querySelector('.goods__name').textContent;
+            const productPrice = parseInt(card.querySelector('.goods__price').textContent.replace(/\s+/g, '').replace('₽', ''));
+            
+            if (card.classList.contains('goods__card--selected')) {
+                addToCart(productName, productPrice);
+            } else {
+                removeFromCart(productName);
+            }
+            updateCartDisplay();
+        }
+
+        function toggleFavorite(button) {
+            const card = button.closest('.goods__card');
+            const productName = card.querySelector('.goods__name').textContent;
+            
+            if (favorites.has(productName)) {
+                favorites.delete(productName);
+                button.innerHTML = '<i class="bi bi-heart"></i> В избранное';
+                button.classList.remove('btn-danger');
+                button.classList.add('btn-outline-secondary');
+            } else {
+                favorites.add(productName);
+                button.innerHTML = '<i class="bi bi-heart-fill"></i> В избранном';
+                button.classList.remove('btn-outline-secondary');
+                button.classList.add('btn-danger');
+            }
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+        }
+
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-muted">Корзина пуста</p>';
+                cartTotal.textContent = '0';
+                return;
+            }
+            
+            let total = 0;
+            let itemsHTML = '<div class="list-group">';
+            
+            cart.forEach(item => {
+                total += item.price;
+                itemsHTML += `
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        ${item.name}
+                        <span class="badge bg-primary rounded-pill">${item.price.toLocaleString()} ₽</span>
+                    </div>
+                `;
+            });
+            
+            itemsHTML += '</div>';
+            cartItems.innerHTML = itemsHTML;
+            cartTotal.textContent = total.toLocaleString();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Корзина пуста!');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            alert(`Заказ оформлен!\nТоваров: ${cart.length}\nОбщая сумма: ${total.toLocaleString()} ₽\n\nСпасибо за покупку!`);
+            cart = [];
+            updateCartDisplay();
+            
+            // Снимаем выделение со всех товаров
+            document.querySelectorAll('.goods__card--selected').forEach(card => {
+                card.classList.remove('goods__card--selected');
+            });
+        }
+
+        function filterGoods() {
+            const category = document.getElementById('categoryFilter').value;
+            const discountOnly = document.getElementById('discountFilter').checked;
+            const cards = document.querySelectorAll('.goods__card');
+            
+            cards.forEach(card => {
+                const cardCategory = card.dataset.category;
+                const hasDiscount = card.classList.contains('goods__card--discount');
+                let show = true;
+                
+                if (category !== 'all' && cardCategory !== category) {
+                    show = false;
+                }
+                
+                if (discountOnly && !hasDiscount) {
+                    show = false;
+                }
+                
+                card.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        function sortGoods() {
+            const sortBy = document.getElementById('sortFilter').value;
+            const container = document.getElementById('goodsGrid');
+            const cards = Array.from(container.querySelectorAll('.goods__card'));
+            
+            cards.sort((a, b) => {
+                switch (sortBy) {
+                    case 'price-asc':
+                        return parseInt(a.dataset.price) - parseInt(b.dataset.price);
+                    case 'price-desc':
+                        return parseInt(b.dataset.price) - parseInt(a.dataset.price);
+                    case 'name':
+                        return a.dataset.name.localeCompare(b.dataset.name);
+                    default:
+                        return 0;
+                }
+            });
+            
+            // Очищаем контейнер и добавляем отсортированные карточки
+            container.innerHTML = '';
+            cards.forEach(card => container.appendChild(card));
+        }
+
+        // Функция переключения темы (такая же как в index.html)
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const themeButton = document.querySelector('.theme-switcher__button');
+            if (newTheme === 'dark') {
+                themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+            } else {
+                themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+            }
+        }
+
+        // Загружаем сохраненную тему
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeButton = document.querySelector('.theme-switcher__button');
+            if (savedTheme === 'dark') {
+                themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+            } else {
+                themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
