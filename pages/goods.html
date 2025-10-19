@@ -86,7 +86,7 @@
                         <h3 class="goods__name">Ноутбук игровой</h3>
                         <p class="goods__price">85 000 ₽</p>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
+                            <button class="btn btn-primary" onclick="addToCartFromButton(this)">
                                 <i class="bi bi-cart-plus"></i> В корзину
                             </button>
                             <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
@@ -101,7 +101,7 @@
                         <h3 class="goods__name">Смартфон</h3>
                         <p class="goods__price">45 000 ₽</p>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
+                            <button class="btn btn-primary" onclick="addToCartFromButton(this)">
                                 <i class="bi bi-cart-plus"></i> В корзину
                             </button>
                             <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
@@ -119,7 +119,7 @@
                             12 000 ₽
                         </p>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
+                            <button class="btn btn-primary" onclick="addToCartFromButton(this)">
                                 <i class="bi bi-cart-plus"></i> В корзину
                             </button>
                             <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
@@ -134,40 +134,7 @@
                         <h3 class="goods__name">Клавиатура</h3>
                         <p class="goods__price">8 500 ₽</p>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
-                                <i class="bi bi-cart-plus"></i> В корзину
-                            </button>
-                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
-                                <i class="bi bi-heart"></i> В избранное
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Товар 5 -->
-                    <div class="goods__card goods__card--discount" data-category="laptop" data-price="120000" data-name="Ноутбук премиум" data-discount="true">
-                        <img src="../images/goods1.jpg" alt="Ноутбук премиум" class="goods__image">
-                        <h3 class="goods__name">Ноутбук премиум</h3>
-                        <p class="goods__price">
-                            <span class="goods__price--old">150 000 ₽</span>
-                            120 000 ₽
-                        </p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
-                                <i class="bi bi-cart-plus"></i> В корзину
-                            </button>
-                            <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
-                                <i class="bi bi-heart"></i> В избранное
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Товар 6 -->
-                    <div class="goods__card" data-category="phone" data-price="35000" data-name="Смартфон бюджетный">
-                        <img src="../images/goods2.jpg" alt="Смартфон бюджетный" class="goods__image">
-                        <h3 class="goods__name">Смартфон бюджетный</h3>
-                        <p class="goods__price">35 000 ₽</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary" onclick="selectGoodsCard(this.parentElement.parentElement)">
+                            <button class="btn btn-primary" onclick="addToCartFromButton(this)">
                                 <i class="bi bi-cart-plus"></i> В корзину
                             </button>
                             <button class="btn btn-outline-secondary" onclick="toggleFavorite(this)">
@@ -208,18 +175,39 @@
         let cart = [];
         let favorites = new Set();
 
-        // Функции для работы с товарами
-        function selectGoodsCard(card) {
-            card.classList.toggle('goods__card--selected');
+        // Исправленная функция добавления в корзину
+        function addToCartFromButton(button) {
+            const card = button.closest('.goods__card');
             const productName = card.querySelector('.goods__name').textContent;
-            const productPrice = parseInt(card.querySelector('.goods__price').textContent.replace(/\s+/g, '').replace('₽', ''));
             
-            if (card.classList.contains('goods__card--selected')) {
-                addToCart(productName, productPrice);
-            } else {
-                removeFromCart(productName);
+            // Правильное извлечение цены (только актуальная цена)
+            let priceText = card.querySelector('.goods__price').textContent;
+            
+            // Если есть старая цена (скидка), берем только последнюю цену
+            if (card.classList.contains('goods__card--discount')) {
+                const prices = card.querySelector('.goods__price').innerHTML;
+                // Берем текст после последнего тега span (актуальная цена)
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = prices;
+                priceText = tempDiv.textContent || tempDiv.innerText || '';
             }
+            
+            // Очищаем цену от лишних символов
+            const productPrice = parseInt(priceText.replace(/[^\d]/g, ''));
+            
+            addToCart(productName, productPrice);
             updateCartDisplay();
+            
+            // Визуальная обратная связь
+            button.innerHTML = '<i class="bi bi-check-lg"></i> Добавлено';
+            button.classList.remove('btn-primary');
+            button.classList.add('btn-success');
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="bi bi-cart-plus"></i> В корзину';
+                button.classList.remove('btn-success');
+                button.classList.add('btn-primary');
+            }, 2000);
         }
 
         function toggleFavorite(button) {
@@ -244,7 +232,10 @@
         }
 
         function removeFromCart(name) {
-            cart = cart.filter(item => item.name !== name);
+            const index = cart.findIndex(item => item.name === name);
+            if (index > -1) {
+                cart.splice(index, 1);
+            }
         }
 
         function updateCartDisplay() {
@@ -260,12 +251,17 @@
             let total = 0;
             let itemsHTML = '<div class="list-group">';
             
-            cart.forEach(item => {
+            cart.forEach((item, index) => {
                 total += item.price;
                 itemsHTML += `
                     <div class="list-group-item d-flex justify-content-between align-items-center">
-                        ${item.name}
-                        <span class="badge bg-primary rounded-pill">${item.price.toLocaleString()} ₽</span>
+                        <div>
+                            ${item.name}
+                            <br><small class="text-muted">${item.price.toLocaleString()} ₽</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-danger" onclick="removeFromCartByName('${item.name}')">
+                            <i class="bi bi-trash"></i>
+                        </button>
                     </div>
                 `;
             });
@@ -273,6 +269,11 @@
             itemsHTML += '</div>';
             cartItems.innerHTML = itemsHTML;
             cartTotal.textContent = total.toLocaleString();
+        }
+
+        function removeFromCartByName(name) {
+            removeFromCart(name);
+            updateCartDisplay();
         }
 
         function checkout() {
@@ -285,11 +286,6 @@
             alert(`Заказ оформлен!\nТоваров: ${cart.length}\nОбщая сумма: ${total.toLocaleString()} ₽\n\nСпасибо за покупку!`);
             cart = [];
             updateCartDisplay();
-            
-            // Снимаем выделение со всех товаров
-            document.querySelectorAll('.goods__card--selected').forEach(card => {
-                card.classList.remove('goods__card--selected');
-            });
         }
 
         function filterGoods() {
@@ -332,12 +328,11 @@
                 }
             });
             
-            // Очищаем контейнер и добавляем отсортированные карточки
             container.innerHTML = '';
             cards.forEach(card => container.appendChild(card));
         }
 
-        // Функция переключения темы (такая же как в index.html)
+        // Функция переключения темы
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
