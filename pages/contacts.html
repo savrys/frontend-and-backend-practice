@@ -200,6 +200,13 @@
             </div>
         </dialog>
 
+        <!-- Переключатель темы -->
+        <div class="theme-switcher" style="position: fixed; bottom: 20px; right: 20px;">
+            <button class="theme-switcher__button" onclick="toggleTheme()">
+                <i class="bi bi-moon-fill"></i> Сменить тему
+            </button>
+        </div>
+
         <script>
             function submitForm() {
                 const form = document.getElementById('feedbackForm');
@@ -229,7 +236,34 @@
                     this.close();
                 }
             });
+
+            function toggleTheme() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                const themeButton = document.querySelector('.theme-switcher__button');
+                if (newTheme === 'dark') {
+                    themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+                } else {
+                    themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                
+                const themeButton = document.querySelector('.theme-switcher__button');
+                if (savedTheme === 'dark') {
+                    themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+                } else {
+                    themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+                }
+            });
         </script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     </div>
 </body>
 </html>
