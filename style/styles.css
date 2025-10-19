@@ -189,6 +189,7 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
+/* Старые классы для обратной совместимости */
 .nav-list {
   list-style: none;
   margin: 0;
