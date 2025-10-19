@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Портфолио</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Портфолио студента</h1>
+            <p class="header__subtitle">Семестровая работа по фронтенд разработке</p>
+            <div class="theme-switcher">
+                <button class="theme-switcher__button" onclick="toggleTheme()">
+                    <i class="bi bi-moon-fill"></i> Сменить тему
+                </button>
+            </div>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <main class="main">
+            <section class="profile">
+                <div class="card profile__card">
+                    <img class="profile__photo" src="images/photo.png" alt="Фото автора">
+                    <div class="profile__info">
+                        <h2 class="profile__name">Савин Арсений Дмитриевич</h2>
+                        <p class="profile__group">ЭФБО-15-24</p>
+                        <div class="skills__grid">
+                            <div class="skill">HTML/CSS</div>
+                            <div class="skill">JavaScript</div>
+                            <div class="skill">Python</div>
+                            <div class="skill">Git</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="about">
+                <h2 class="about__title">Обо мне</h2>
+                <p class="about__text">
+                    Я родился в Москве в 2006 на краю города. Глупость рано ударила в голову. В четыре активно ругался.
+                    Потом школа, форма. Так я становился сильней.
+                </p>
+            </section>
+            
+            <section class="experience">
+                <h2 class="experience__title">Мой опыт работы</h2>
+                <div class="experience__grid">
+                    <div class="experience__card">
+                        <h3 class="experience__card-title">Опыт 1</h3>
+                        <p class="experience__card-desc">Работал фантазёром. Сочинял и праздновал.</p>
+                    </div>
+                    <div class="experience__card">
+                        <h3 class="experience__card-title">Опыт 2</h3>
+                        <p class="experience__card-desc">Работал воровством. Воровал и продавал.</p>
+                    </div>
+                    <div class="experience__card">
+                        <h3 class="experience__card-title">Опыт 3</h3>
+                        <p class="experience__card-desc">Работал рэпером. Читал и пел.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>© 2025 Семестровая работа. Все права защищены.</p>
+        </footer>
+    </div>
 
+    <script>
+        // Функция переключения темы
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            // Сохраняем выбор пользователя
+            localStorage.setItem('theme', newTheme);
+            
+            // Обновляем текст кнопки
+            const themeButton = document.querySelector('.theme-switcher__button');
+            if (newTheme === 'dark') {
+                themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+            } else {
+                themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+            }
+        }
+
+        // Загружаем сохраненную тему при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeButton = document.querySelector('.theme-switcher__button');
+            if (savedTheme === 'dark') {
+                themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+            } else {
+                themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+            }
+        });
+
+        // Функция для выбора товара (для страницы товаров)
+        function selectGoodsCard(card) {
+            card.classList.toggle('goods__card--selected');
+        }
+
+        // Функция для отправки формы (для страницы контактов)
+        function submitForm() {
+            const form = document.getElementById('feedbackForm');
+            const formData = new FormData(form);
+            
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                category: formData.get('category'),
+                message: formData.get('message')
+            };
+
+            console.log('Данные формы:', data);
+            alert('Спасибо! Ваше сообщение отправлено.');
+            document.getElementById('contactModal').close();
+            form.reset();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
