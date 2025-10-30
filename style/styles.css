@@ -1034,3 +1034,21 @@ dialog {
         transform: none;
     }
 }
+/* ===== НАВИГАЦИЯ STICKY С SAFE AREAS ===== */
+.nav {
+    background: var(--bg-darker);
+    padding: var(--spacing-sm) 0;
+    grid-area: nav;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    isolation: isolate;
+    min-height: 70px; /* ← ДОБАВИТЬ ЭТУ СТРОЧКУ */
+    display: flex; /* ← ДОБАВИТЬ */
+    align-items: center; /* ← ДОБАВИТЬ */
+    
+    /* Safe areas */
+    padding-block-start: calc(var(--spacing-sm) + env(safe-area-inset-top));
+    padding-inline-start: calc(var(--spacing-sm) + env(safe-area-inset-left));
+    padding-inline-end: calc(var(--spacing-sm) + env(safe-area-inset-right));
+}
