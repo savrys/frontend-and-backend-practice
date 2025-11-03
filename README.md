@@ -17,6 +17,10 @@ https://github.com/savrys/frontend-and-backend-practice/blob/main/Снимок%2
 https://github.com/savrys/frontend-and-backend-practice/blob/main/Снимок%20экрана%202025-11-03%20150052.png
 
 4)https://games.pikabu.ru/?ysclid=mhj38glxk413295031  -  бесплатные игры
+https://github.com/savrys/frontend-and-backend-practice/blob/main/Снимок%20экрана%202025-11-03%20150021.png
+
+
+
 
 
 
