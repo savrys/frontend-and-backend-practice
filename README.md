@@ -8,6 +8,9 @@ https://savrys.github.io/frontend-and-backend-practice/
 Сторонние сайты
 
 1) https://yandex.ru/games/?ysclid=mhj34fw0rm31740249  -  Яндекс игры
-2) 
+(https://github.com/savrys/frontend-and-backend-practice/blob/main/Снимок%20экрана%202025-11-03%20145817.png)
+
+2)https://poki.com/ru?ysclid=mhj37v87fu661636895  -  поки игры
+
 
 
